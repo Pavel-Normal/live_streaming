@@ -14,3 +14,32 @@
   column-gap: $column-gap;
   row-gap: $row-gap;
 }
+
+@mixin postion(
+  $type: reletiv,
+  $zindex: 0,
+  $inset: -1,
+  $top-or-bottom: top,
+  $left-or-rigth: left,
+  $value1: 0,
+  $value2: 0
+) {
+  position: $type;
+  z-index: $zindex;
+
+  @if $inset > -1 {
+    inset: $inset;
+  } @else {
+    #{$top-or-bottom}: $value1;
+    #{$left-or-rigth}: $value2;
+  }
+}
+
+@mixin font($size: 16, $width: 400, $color: #ffffff, $style: normal) {
+  font : {
+    size: $size;
+    width: $width;
+    style: $style;
+  }
+  color: $color;
+}
